@@ -20,11 +20,11 @@ def hello_world():
 
 @app.route('/answer', methods = ['POST'])
 def answer():
-	case = int(request.form['n'])
-	if case.isdigit():
+	if request.form['n'].isdigit():
+		case = int(request.form['n'])
 		return str(fibonacci(case))
 	else:
-		return render_template('index.html', author=author,message='Enter a valid integer please')
+		return render_template('index.html', author=author,message='Enter an integer')
 
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 33507))
