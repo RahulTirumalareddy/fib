@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 import os
 app = Flask(__name__)
 author='Rahul'
+message='Enter n for fibonacci(n)'
 def fibonacci(n):
 	a,b=0,1
 	if n==0:
@@ -15,14 +16,15 @@ def fibonacci(n):
 
 @app.route('/')
 def hello_world():
-	return render_template('index.html',author=author)
+	return render_template('index.html',author=author,message=message)
 
 @app.route('/answer', methods = ['POST'])
 def answer():
-	
 	case = int(request.form['n'])
-	return str(fibonacci(case))
-	#return redirect('/')
+	if case.isdigit():
+		return str(fibonacci(case))
+	else:
+		return render_template('index.html', author=author,message='Enter a valid integer please')
 
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 33507))
