@@ -1,19 +1,30 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{author}}'s app</title>	
+    <title>Rahul's app</title>	
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
     <style type="text/css">    
       body {
       	font-family: 'Oswald', sans-serif;
-      	font-size: 30px;
+      	font-size: 28px;
       	font-weight:300;
       }
     </style>
   </head>  
   <body>
+  <p>here is a list of all functions available for evaluation:</p>
+    {% for f in d %}
+    <li>{{f}}</li>
+    {% endfor %}
+
+  <form action="/add" method="post">
+    <input type="text" name="func_name" placeholder='function name'></input>
+    <input type="text" name="func_def" placeholder='function definition (as lambda)' size=35></input>
+    <input type="submit" value="Add function" style="font-family: 'Oswald';"/>
+  </form>
   <form action="/answer" method="post">
-  	<input type="text" name="n" placeholder='{{message}}'></input>
+    <input type="text" name="f" placeholder='function name'></input>
+  	<input type="text" name="n" placeholder='input'></input>
   	<input type="submit" value="Submit" style="font-family: 'Oswald';"/>
   </form>
   
