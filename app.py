@@ -37,7 +37,8 @@ def answer():
 	if not errors and isinstance(d[request.form['f']],str):
 		f=d[request.form['f']]
 		case = request.form['n']
-		return str( eval( '('+f+')'+'('+ case+')' ) )
+		exp='('+f+')'+'('+ case+')'
+		return str(eval(exp))
 	elif not errors:
 		f=d[request.form['f']]
 		case = int(request.form['n'])
