@@ -2,17 +2,17 @@
   <head>
     <meta charset="utf-8">
     <title>Rahul's app</title>	
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">  
     <style type="text/css">    
       body {
-      	font-family: 'Oswald', sans-serif;
+      	font-family: 'PT Sans', sans-serif;
       	font-size: 28px;
       	font-weight:300;
       }
     </style>
   </head>  
   <body>
-  <p>here is a list of all functions available for evaluation:</p>
+  here is a list of all functions available for evaluation:
     {% for f in d %}
     <li>{{f}}</li>
     {% endfor %}
@@ -23,10 +23,12 @@
     <input type="submit" value="Add function" style="font-family: 'Oswald';"/>
   </form>
   <form action="/answer" method="post">
-    <input type="text" name="f" placeholder='function name'></input>
-  	<input type="text" name="n" placeholder='input'></input>
+    <input type="text" name="f" placeholder='function'></input>
+  	<input type="text" name="n" placeholder='input (integer)'></input>
   	<input type="submit" value="Submit" style="font-family: 'Oswald';"/>
   </form>
+
+  {{result}}
   
   </body>
 </html>
