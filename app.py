@@ -43,7 +43,7 @@ def answer():
 	if not errors:
 		f=d[request.form['f']]
 		n = request.form['n']
-		result=request.form['f'] + '(' + n + ')='
+		result=request.form['f'] + '(' + n + ') = '
 		if isinstance(d[request.form['f']],str):
 			exp='('+f+')'+'('+n+')'
 			result+=str(eval(exp))
